@@ -6,19 +6,20 @@
 // (advanced) Common function to reduce code repeat
 
 /* 01-advanced */
-function getInputValue() {
-  const depositInput = document.getElementById('deposit-input');
-  const depositAmountText = depositInput.value;
-  const depositAmount = parseFloat(depositAmountText);
+function getInputValue(inputId) {
+  const InputField = document.getElementById(inputId);
+  const inputAmountText = InputField.value;
+  const Amount = parseFloat(inputAmountText);
 
   // clear input field
-  depositInput.value = ' ';
+  InputField.value = ' ';
 
-  return depositAmount;
+  return Amount;
 }
 
 /* video-02 */
 // step-1
+/* 01-advanced*/
 document.getElementById('deposit-button').addEventListener('click', function () {
   //  check deposit-button
   // console.log('deposit click handler')
@@ -30,9 +31,12 @@ document.getElementById('deposit-button').addEventListener('click', function () 
   // console.log(depositAmount);
   // step-03
 
+
   /* 01-advanced*/
-  const advanceddepositAmount = getInputValue();
+  const depositAmount = getInputValue('deposit-input');
   /* 01-advanced*/
+
+
 
   // get current deposit
   const depositTotal = document.getElementById('deposit-total');
@@ -55,16 +59,28 @@ document.getElementById('deposit-button').addEventListener('click', function () 
 });
 /* video-04 */
 // step-01
+
+
+
+
+/* 01-advanced */
 /* // handle withdraw-button */
 document.getElementById('withdraw-button').addEventListener('click', function () {
   // console.log("withdraw-button check")
   // step-02
-  const withdrawInput = document.getElementById('withdraw-input');
-  const withdrawAmountText = withdrawInput.value;
+  // ,const withdrawInput = document.getElementById('withdraw-input');
+  //, const withdrawAmountText = withdrawInput.value;
   // console.log(withdrawAmountText);
   // step-04
-  const withdrawAmount = parseFloat(withdrawAmountText);
+  // , const withdrawAmount = parseFloat(withdrawAmountText);
   // step-03
+
+
+
+  /* 01-advanced */
+  const withdrawAmount = getInputValue('withdraw-input')
+  /* 01-advanced */
+
   // update withdraw total
   const withdrawTotal = document.getElementById('withdraw-total');
   const previouswithdrawTotalText = withdrawTotal.innerText;
@@ -72,6 +88,8 @@ document.getElementById('withdraw-button').addEventListener('click', function ()
   const previouswithdrawTotal = parseFloat(previouswithdrawTotalText);
   // step-03
   withdrawTotal.innerText = previouswithdrawTotal + withdrawAmount;
+
+
 
 
   // update blance after withdraw
@@ -84,8 +102,10 @@ document.getElementById('withdraw-button').addEventListener('click', function ()
   // step-04
   balanceTotal.innerText = previousBalanceTotal - withdrawAmount;
 
+  /* 01-advanced */
   // clear withdraw  input field
-  withdrawInput.value = ' ';
+  //,, withdrawInput.value = ' ';
+  /* 01-advanced */
 })
 /* video-05 */
 // (advanced) Common function to reduce code repeat
